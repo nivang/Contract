@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body {margin:0;}
+body {
+  background-color: white;
+  font-family: Mr Eaves Mod OT Bold;
+  margin: 0;
+}
+.header {
+  padding: 80px;
+  text-align: center;
+  background: #7353cfff;
+  color: white;
+}
+.header h1 {
+  font-size: 40px;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+li {
+  float: left;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li:last-child {
+  border-right: none;
+}
+li a:hover:not(.active) {
+  background-color: #111;
+}
+.active {
+  background-color: #4CAF50;
+}
+h1 {
+  padding-top: 70px;
+  padding-left: 80px;
+  color: #4CAF50;
+}
+h3 {
+  color: black;
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+h5 {
+  padding-left: 80px;
+  color: #4CAF50;
+}
+.button {
+  background-color: #7353cfff;
+  border: none;
+  color: white;
+  padding: 10px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.btn-group {
+  text-align: center;  
+  display: flex;  
+  justify-content: center;  
+  align-items: center; 
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.btn-group .button {
+  border: 2px #7353cfff;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  float: left;
+  border-radius: 16px;
+  margin: 0px 10px;
+}
+.btn-group .button:not(:last-child) {
+  border-right: none;
+}
+.btn-group .button:hover {
+  background-color: #7353cfff;
+}
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: white;
+  bottom: 0;
+  width: 100%;
+}
+</style>
+</head>
+<body>
+<div class="header">
+  <img src="contract.png" alt="Contract" width="500" height="600">
+</div>
+<ul>
+  <li><a href="home.html">Home</a></li>
+  <li><a href="index.html">Find Jobs</a></li>
+  <li><a href="developer.html">Find Developers</a></li>
+  <li><a href="mtt.html">Meet The Team</a></li>
+  <li style="float:right"><a href="account.html">My Account</a></li>
+</ul>
+<h3>Top Job Types</h3>
+<div class="btn-group">
+  <button class="button">Special Agent</button>
+  <button class="button">Software Developer</button>
+  <button class="button">Popular Jobs</button>
+</div>
+<div class="footer">
+  <p1>Copyright © 2021 Contact Inc. All rights reserved.</p1>
+</div>
+</body>
+</html>
