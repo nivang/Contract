@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>ATXMN</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='node_modules/web3/dist/web3.min.js'></script>
+</head>
+<body>
+    ATXMN Marketmake
+    <br> <br> 
+    <form>
+        Deposit amount:<br> <input type="number" name="Deposit amount">
+         <br>       
+    </form>
+    <button onclick="deposit();">Deposit</button>
+    <br /><br />
+    <button onclick="accept();">Accept</button>
+    <button onclick="cancel();">Cancel</button>
+    <button onclick="refund();">Refund</button>
+    <button onclick="getBalance();">Get Balance</button>
+    <br /><br />
+    Status: <span id="status">Loading... (Please make sure your Metamask is connected)</span>
+    <script type="text/javascript">
+        async function loadWeb3() {
+            if (window.ethereum) {
+                window.web3 = new Web3(window.ethereum);
+                window.ethereum.enable();
+            }
+        }
+        async function loadContract() {
+            return await new window.web3.eth.Contract([
+                {
+                    "constant": false,
+                    "inputs": [],
+                    "name": "accept",
+                    "outputs": [],
+                    "payable": false,
+                    "type": "function",
+                    "stateMutability": "nonpayable"
+                },
+                {
+                    "constant": false,
+                    "inputs": [],
+                    "name": "cancel",
+                    "outputs": [],
+                    "payable": false,
+                    "type": "function",
+                    "stateMutability": "nonpayable"
+                },
+                {
+                    "constant": false,
+                    "inputs": [],
+                    "name": "deposit",
+                    "outputs": [],
+                    "payable": true,
+                    "type": "function",
+                    "stateMutability": "payable"
+                },
+                {
+                    "constant": false,
+                    "inputs": [],
+                    "name": "instantrefund",
+                    "outputs": [],
+                    "payable": false,
+                    "type": "function",
+                    "stateMutability": "nonpayable"
+                },
+                {
+                    "constant": false,
+                    "inputs": [],
+                    "name": "payBalance",
+                    "outputs": [],
+                    "payable": false,
+                    "type": "function",
+                    "stateMutability": "nonpayable"
+                },
+                {
+                    "inputs": [
+                        {
+                            "name": "buyer_address",
+                            "type": "address"
+                        },
+                        {
+                            "name": "seller_address",
+                            "type": "address"
+                        }
+                    ],
+                    "payable": false,
+                    "type": "constructor",
+                    "stateMutability": "nonpayable"
+                },
+                {
+                    "constant": true,
+                    "inputs": [],
+                    "name": "buyer",
+                    "outputs": [
+                        {
+                            "name": "",
+                            "type": "address"
+                        }
+                    ],
+                    "payable": false,
+                    "type": "function",
+                    "stateMutability": "view"
+                },
+                {
+                    "constant": true,
+                    "inputs": [],
+                    "name": "seller",
+                    "outputs": [
+                        {
+                            "name": "",
+                            "type": "address"
+                        }
+                    ],
+                    "payable": false,
+                    "type": "function",
+                    "stateMutability": "view"
+                }
+            ], '0x1761d88a42d0c92D22800E7e4BeC923B9aA52Bb4');
+        }
+        async function getCurrentAccount() {
+            const account = await new window.web3.eth.getAccounts();
+            return account[0];
+        }
+        async function getBalance() {
+            const balance = await window.web3.eth.getBalance(contract_address);
+            return balance
+        }
+        async function deposit() {
+            updateStatus('Depositing your $$$ into the smart contract');
+            let send = web3.eth.sendTransaction({from:eth.coinbase,to:contract_address, value:web3.toWei(0.05, "ether")});
+            const account = await getCurrentAccount();
+            const deposit = await window.contract.methods.deposit().send( {from: account } );
+            updateStatus(`Deposit successful!`);
+        }
+        async function accept() {
+            updateStatus('Processing acceptance - please wait');
+            const account = await getCurrentAccount();
+            const boolaccept = await window.contract.methods.accept().send( {from: account} );
+            updateStatus(`Accepted - awaiting other party`);
+        }
+        async function cancel() {
+            updateStatus('Cancelling - please wait');
+            const account = await getCurrentAccount();
+            const boolaccept = await window.contract.methods.cancel().send( {from: account} );
+            updateStatus(`Cancelled - awaiting other party`);
+        }
+        async function instantrefund() {
+            updateStatus('Calling for 14-day limit refund');
+            const account = await getCurrentAccount();
+            const boolaccept = await window.contract.methods.instantrefund().send( {from: account} );
+            updateStatus(`Refund secured.`);
+        }
+        async function load() {
+            await loadWeb3();
+            updateStatus('Ready!');
+        }
+        function updateStatus(status) {
+            const statusEl = document.getElementById('status');
+            statusEl.innerHTML = status;
+            console.log(status);
+        }
+        load();
+    </script>
+</body>
+</html>
