@@ -1,0 +1,163 @@
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+h3 {
+  padding-top: 20px;
+}
+.column {
+  float: left;
+  width: 33.3%;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: 8px;
+}
+.about-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #7353cfff;
+;
+  color: white;
+}
+.container {
+  padding: 0 16px;
+}
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.title {
+  color: grey;
+}
+.button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #000;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+}
+.button:hover {
+  background-color: #555;
+}
+@media screen and (max-width: 650px) {
+  .column {
+    width: 100%;
+    display: block;
+  }
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+li {
+  float: left;
+}
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+li:last-child {
+  border-right: none;
+}
+li a:hover:not(.active) {
+  background-color: #111;
+}
+.active {
+  background-color: #4CAF50;
+}
+.footer {
+  padding: 20px;
+  text-align: center;
+  background: white;
+  bottom: 0;
+  width: 100%;
+}
+</style>
+</head>
+<body>
+<div class="about-section">
+  <h1>Meet the Team!</h1>
+  <p>Our team is on a mission to create a better trading system, utilizing cryptocurrencies and game theory to allow for P2P transactions.</p>
+</div>
+<ul>
+  <li><a href="home.html">Home</a></li>
+  <li><a href="index.html">Find Jobs</a></li>
+  <li><a href="developer.html">Find Developers</a></li>
+  <li><a href="mtt.html">Meet The Team</a></li>
+  <li style="float:right"><a href="account.html">My Account</a></li>
+</ul>
+<h2 style="text-align:center">Our Team</h2>
+<div class="row">
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h3>Aniket Majumder</h3>
+        <p class="title">Co-Founder</p>
+      </div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="card">
+      <div class="container">
+        <h3>Myles Sherman</h3>
+        <p class="title">Co-Founder</p>
+      </div>
+    </div>
+  </div>
+ <div class="column">
+    <div class="card">
+      <div class="container">
+        <h3>Nivan Gujral</h3>
+        <p class="title">Co-Founder</p>
+      </div>
+    </div>
+  </div>
+ <div class="column">
+    <div class="card">
+      <div class="container">
+        <h3>Thea Chhim</h3>
+        <p class="title">Co-Founder</p>
+      </div>
+    </div>
+  </div>
+ <div class="column">
+    <div class="card">
+      <div class="container">
+        <h3>Xiangan He</h3>
+        <p class="title">Co-Founder</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="footer">
+  <p1>Copyright © 2021 Contact Inc. All rights reserved</p1>
+</div>
+</body>
+</html>
